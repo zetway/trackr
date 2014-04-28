@@ -32,3 +32,32 @@ body{
 .padding-30{
 	padding: 30px;
 }
+.ovrtext{
+	position: relative;
+	font-size: 35px;
+	font-weight: bold;
+	z-index: 1;
+	color: #fff;
+	
+}
+.ovrtext-1{
+	color: #444;
+	top: -100px;
+	left: 340px;
+	width: 200px;
+	height: 100px;
+}
+.ovrtext-2{
+	color: #444;
+	top: -290px;
+	left: 410px;
+	width: 200px;
+	height: 100px;
+}
+.ovrtext-3{
+	
+	top: -265px;
+	left: 110px;
+	width: 200px;
+	height: 100px;
+}
