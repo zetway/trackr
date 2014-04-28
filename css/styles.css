@@ -1,0 +1,34 @@
+.content{
+	min-height: 600px;
+	background: #eee;
+	border-radius: 10px;
+	padding: 30px;
+}
+.nav-justified{
+	text-align: center;
+	display: block;
+}
+.nav-justified>li{
+	width: auto;
+	display: inline-block;
+}
+.container{
+	margin: 0 auto;
+	width: 970px;
+
+}
+
+body{
+	background: #fff;
+}
+.blue{
+	background: #0bf;
+	border-radius: 10px;
+	width: 300px;
+	padding: 10px;
+	color: #fff;
+	box-shadow: 4px 4px 2px #8aa;
+}
+.padding-30{
+	padding: 30px;
+}
