@@ -1,0 +1,43 @@
+a {
+	color: #08c;
+}
+a:visited{
+	color: #02e;
+}
+a:hover{
+	color: #04f;
+}
+.logo{
+	background: #0bf;
+	color: #fff;
+	box-shadow: 4px 4px 2px #8aa;
+}
+
+.wrapper{
+	background: #eee;
+}
+.nav>li:hover, .nav>li.active{
+	background: #fff;
+}
+
+.nav>li:hover a, .nav>li.active a{
+	color: #222;
+}
+.nav li a {
+	text-decoration: none;
+	color: #fff;
+}
+body{
+	background: #eee;
+}
+.nav{
+	background-color: #000;
+}
+.switch li div:first-child{
+	background: #aaa;
+	color: #fff;
+}
+
+.switch li.active div:first-child, .switch li:hover div:first-child{
+	background: #0bf;	
+}
