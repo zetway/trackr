@@ -1,63 +1,84 @@
 .content{
-	min-height: 600px;
-	background: #eee;
-	border-radius: 10px;
+	min-height: 590px;	
+	margin: 0 auto;
+	max-width: 900px;
 	padding: 30px;
 }
-.nav-justified{
-	text-align: center;
-	display: block;
-}
-.nav-justified>li{
-	width: auto;
-	display: inline-block;
-}
-.container{
-	margin: 0 auto;
-	width: 970px;
-
+.clear{
+	clear: both;
 }
 
-body{
-	background: #fff;
+
+body{	
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0 0 0 0;
 }
-.blue{
-	background: #0bf;
+
+
+
+.logo{
 	border-radius: 10px;
 	width: 300px;
 	padding: 10px;
-	color: #fff;
-	box-shadow: 4px 4px 2px #8aa;
+	
+	margin-left: 15px;
 }
-.padding-30{
-	padding: 30px;
+
+.center{
+	margin: 0 auto;
+	text-align: center;
 }
-.ovrtext{
-	position: relative;
-	font-size: 35px;
-	font-weight: bold;
-	z-index: 1;
-	color: #fff;
+.center li{
+	display: inline-block;
+	float: none;
 	
 }
-.ovrtext-1{
-	color: #444;
-	top: -100px;
-	left: 340px;
-	width: 200px;
-	height: 100px;
+
+.nav{
+	text-align: center;
+	display: block;
+	margin: 0;
+	padding: 0;
 }
-.ovrtext-2{
-	color: #444;
-	top: -290px;
-	left: 410px;
-	width: 200px;
-	height: 100px;
-}
-.ovrtext-3{
+.nav>li{
+	width: auto;
+	display: inline-block;
+	transition: background 0.3s;
+	min-height: 20px;
+	padding: 10px 30px;
 	
-	top: -265px;
-	left: 110px;
-	width: 200px;
-	height: 100px;
+}
+
+.nav li a {
+	text-decoration: none;
+}
+
+.right{
+	float: right;
+	list-style-type: none;
+}
+.right a {
+	text-decoration: none;
+}
+
+.switch{
+	list-style-type: none;
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+.switch li{	
+	display: inline-block;	
+}
+.switch li div:first-child{
+	padding: 10px 40px;
+	display: inline-block;
+	cursor: pointer;
+	font-size: 23px;
+	text-transform: capitalize;
+}
+
+.switch-timer{
+	padding: 5px;
+	font-size: 18px;
 }
