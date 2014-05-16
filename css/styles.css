@@ -1,3 +1,22 @@
+body{	
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0 0 0 0;
+}
+
+.float-left{
+	float: left;
+}
+.float-right{
+	float: right;
+}
+.clear{
+	clear: both;
+}
+h3{
+	color: #07f;
+	font-size: 1.2em;
+	padding: 0;
+}
 .content{
 	min-height: 590px;	
 	margin: 0 auto;
@@ -9,10 +28,6 @@
 }
 
 
-body{	
-	font-family: Arial, Helvetica, sans-serif;
-	margin: 0 0 0 0;
-}
 
 
 
@@ -81,4 +96,61 @@ body{
 .switch-timer{
 	padding: 5px;
 	font-size: 18px;
+}
+
+table.tbl-money{
+	width: 40%;
+	min-width: 300px;
+	margin-top: 30px;
+	border-collapse: collapse;
+}
+
+table.tbl-money tbody tr td:nth-child(2n){
+	text-align: right;
+	min-width: 60px;
+}
+
+.plus-buttons{
+	width: 40%;
+	min-width: 250px;
+	padding-left: 30px;
+	text-align: center;
+}
+
+.p-buttons-container{
+	
+	padding-bottom: 20px;
+}
+
+.p-btn-3{
+	border-radius: 40px;
+	display: inline-block;
+	padding-top: 10px;
+	padding-left: 0px;
+	width: 39px;
+	height: 29px;
+	font-size: 15px;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+.p-btn-2{
+	border-radius: 40px;
+	display: inline-block;
+	padding-top: 10px;
+	padding-left: 2px;
+	width: 37px;
+	height: 29px;
+	font-size: 15px;
+	color: #fff;
+	cursor: pointer;
+}
+.p-btn-text{
+	border-radius:22px;
+	color:#fff;
+	cursor:pointer;
+	width: 60%;
+	padding: 4px 4px;
+	margin: 0 auto;
 }

@@ -41,3 +41,46 @@ body{
 .switch li.active div:first-child, .switch li:hover div:first-child{
 	background: #0bf;	
 }
+
+
+table.tbl-money tbody tr td{
+	border: #999 1px solid;
+}
+table.tbl-money tbody tr:hover, table.tbl-money tbody tr.active{
+	background: #3af;
+	color: #fff;
+}
+
+.red{
+	background-color: #e33;
+}
+.red:hover{
+	background-color: #e00;
+}
+.green{
+	background-color: #2c4;
+}
+.green:hover{
+	background-color: #0c0;
+}
+
+.yellow{
+	background-color: #dd0;
+}
+.yellow:hover{
+	background-color: #ee3;
+}
+
+.Chartreuse {
+	background-color: Chartreuse;
+}
+.DodgerBlue {
+	background-color: DodgerBlue;
+}
+.LightSeaGreen {
+	background-color: LightSeaGreen;
+}
+
+.IndianRed{
+	background-color: IndianRed;
+}
