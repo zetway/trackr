@@ -20,7 +20,7 @@
 						//setcookie("user", "", time()-3600);
 						session_start();			
 
-						echo "hello " . $_SESSION["username"];
+						echo "hello " . $_SESSION["Username"];
 						echo " <a href='#' onclick='logout()'>Log out</a>";
 
 					}

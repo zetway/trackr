@@ -1,5 +1,5 @@
 <?php
-class Account{
+class Storage{
 	private $isConnected;
 	private $connection;
 	function __construct()
@@ -7,16 +7,18 @@ class Account{
 		$this->isConnected = false;
 	}
 
-
 	private function openConn()
 	{
 		if(!$this->isConnected){
 
-			$this->connection=mysqli_connect("localhost","trackr_admin","guest","trackr");
+			$this->connection=mysqli_connect("localhost",
+				"trackr_admin",
+				"guest",
+				"trackr");
 
 			if (mysqli_connect_errno()) {
-			  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-
+				http_response_code(500);
+				die;
 			}
 			else {
 				$this->isConnected = true;
@@ -30,18 +32,38 @@ class Account{
 		$this->isConnected = false;
 	}
 
-	public function AddTime($user)
+	public function AddTime($TimeEntry)
 	{
-		 $this->openConn();
-		mysqli_query($this->connection,"INSERT INTO time-data (TrackingDate, UserId)
-    VALUES (23, DATE('2013-02-12'), 22.5)
-        ON DUPLICATE KEY UPDATE ID = 23;");
+		$this->openConn();
+		$result = mysqli_query($this->connection,"INSERT INTO time-tracking-entry 
+			(TrackingDate, UserId, TimeCategory, Seconds)
+    	VALUES 
+    	(DATE('" . $TimeEntry->$Date . "'), " 
+    		. $TimeEntry->$UserId . ","
+	  		. $TimeEntry->$TimeCategory . ","
+    		. $TimeEntry->$Seconds . ")"
+		);
+       	if (!$result){
+			http_response_code(500); die;
+       	}
 		$this->closeConn();
-		
 	}
-
-	
 }
-foreach ($_POST as $key => $val) {
-    echo "\$a[$k] => $v.\n";
+function getPostParam($param, $numeric = false)
+{
+	if (isset($_POST[$param])) return $_POST[$param];
+	if ($numeric) return 0;
+	return "";
 }
+if (isset($_SESSION["UserId"])) $userId = $_SESSION["UserId"];
+else {
+	http_response_code(500); die;
+}
+$entry = (object)array(
+	"Date" => getPostParam("Date"),
+	"UserId" => $userId,
+	"TimeCategory" => getPostParam("TimeCategory"),
+	"Seconds" => getPostParam("Seconds", true)
+);
+$storage = new Storage();
+$storage->AddTime($entry);

@@ -11,76 +11,59 @@
 			<?php require('partials/navigation.php'); ?>
 		</header>
 		<section class="content">
-			<div id="modal" style="display:none;">
-				<div><input id="1" value="Coding"><button class="remove-cat" data-target="1">-</button></div>
-				<div><input id="2" value="Serfing"><button class="remove-cat" data-target="2">-</button></div>
-				<div><input id="3" value="Cooking"><button class="remove-cat" data-target="3">-</button></div>
-				<button id="add-cat">+</button>
-			</div>
-			<ul class="right">
-				<li><a id="edit-cats" href="#">Edit categories</a></li>
-				<li><a href="#">Some setting</a></li>
-			</ul>
-			<div class="clear"></div>
-			<ul class="switch">
-				<li>
-					<div id="coding">
-						coding 
-					</div>
-					
-					<div class="switch-timer" data-target="coding" data-value="0">
-						00:00:00
-					</div>
-				</li>
-				<li>
-					<div id="serfing">
-						serfing 
-					</div>
-					
-					<div class="switch-timer" data-target="serfing" data-value="0">
-						00:00:00
-					</div>
-				</li>
-				<li>
-					<div id="cooking">
-						cooking 
-					</div>
-					
-					<div class="switch-timer" data-target="cooking" data-value="0">
-						00:00:00
-					</div>
-				</li>
-				<li>
-					<div id="cooking">
-						nothing 
-					</div>
-					
-					<div class="switch-timer" data-target="coding" data-value="0">
-						00:00:00
-					</div>
-				</li>
-			</ul>
+			<?php
+				if (isset($_COOKIE["session"])){
+					require("partials/time-content.php");
+				}
+				else{
+					require('partials/account/registration.php');
+				}
+			?>
 		</section>
 		<footer>
 			<?php require('partials/navigation.php'); ?>
 		</footer>
 	</div>
-	<script type="text/javascript"> 
+	<script type="text/javascript">
+	var getFormattedDate = function() {
+		var date = new Date();
+		var yyyy = date.getFullYear().toString();
+		var mm = (date.getMonth()+1).toString();
+		var dd  = date.getDate().toString();
+		return yyyy + "-" + (mm[1]?mm:"0" + mm[0]) +"-"+ (dd[1]?dd:"0"+dd[0]);
+	};
+
+
 	var AppState = {timers: {}};
 	$(window).load(function(){      
 		$(".time").addClass("active");
 		$(".switch li div").on("click", function(evt)
 		{
-			$.post("/trackr/store-data/store-time.php", AppState.timers ).fail(function() {
-			    alert( "error" );
-			  });
+			
 
 			var target = $(evt.target);
 			var catName = target.html().trim();
 
 			
 			AppState.timers[catName] = AppState.timers[catName] || 0;
+			var prevTimer = AppState["currTimer"] || false;
+			if (prevTimer && AppState.timers[prevTimer] !== 0)	{
+
+				var data = {};
+
+				data["Date]"] = getFormattedDate();
+				data["TimeCategory"] = prevTimer;
+				data["Seconds"] = AppState.timers[prevTimer];
+
+				var jqxhr = $.post( "store-data/store-time.php", data, function() {
+				  console.log("success");
+				}).fail(function() {
+					console.log( "error" );
+				});
+				
+			}
 			AppState.currTimer = catName;
+
 			$(".switch li").removeClass("active");
 			target.parent().addClass("active");
 			var counterEl = $(evt.target).next();
