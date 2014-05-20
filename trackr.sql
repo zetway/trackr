@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 20, 2014 at 09:07 AM
+-- Generation Time: May 20, 2014 at 09:22 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -31,7 +31,9 @@ USE `trackr`;
 CREATE TABLE IF NOT EXISTS `time-category` (
   `TimeCategoryId` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `CategoryName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`TimeCategoryId`)
+  `UserId` int(11) NOT NULL,
+  PRIMARY KEY (`TimeCategoryId`),
+  KEY `UserId` (`UserId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -42,8 +44,10 @@ CREATE TABLE IF NOT EXISTS `time-category` (
 
 CREATE TABLE IF NOT EXISTS `time-data` (
   `TimeDataId` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `TrackingData` date NOT NULL,
-  PRIMARY KEY (`TimeDataId`)
+  `TrackingDate` date NOT NULL,
+  `UserId` int(11) NOT NULL,
+  PRIMARY KEY (`TimeDataId`),
+  KEY `UserId` (`UserId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
