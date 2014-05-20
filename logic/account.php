@@ -90,10 +90,12 @@ class Account{
 		}
 		
 		if($row = mysqli_fetch_array($result)) {
-			setcookie("user",$row["UserId"]);
-
-			session_start();			
-			$_SESSION["username"] = $username;			
+			session_start();
+			setcookie("session",session_id());					
+			$_SESSION["Username"] = $username;
+			$_SESSION["UserId"] = $row["UserId"];
+			header("Refresh:0");
+			exit;
 		}
 
 		$this->closeConn();

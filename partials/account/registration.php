@@ -13,9 +13,9 @@
 		$ok = $account->TryLogin($_POST["username"], $_POST["password"]);
 	}
  ?>
- <form method="post" action="">
+ <form class="reg-form float-left" method="post" action="">
  	<input type="hidden" name="login" value="1">
- 	Log in
+ 	<h3>Log in</h3>
 	<table>
 		<tr>
 			<td>Username:</td>
@@ -34,9 +34,9 @@
 	</table>
 	<input type="submit" value="Submit">
  </form>
- <form method="post" action="">
+ <form class="reg-form float-left" method="post" action="">
  	<input type="hidden" name="register" value="1">
- 	Or Register
+ 	<h3>Or Register</h3>
 	<table>
 		<tr>
 			<td>Username:</td>

@@ -154,3 +154,8 @@ table.tbl-money tbody tr td:nth-child(2n){
 	padding: 4px 4px;
 	margin: 0 auto;
 }
+
+.reg-form{
+	padding-left: 100px;
+	padding-top: 50px;
+}

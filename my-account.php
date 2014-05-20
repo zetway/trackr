@@ -4,6 +4,7 @@
 <head>		
 	<title>Trackr :: Main Page</title>
 	<?php require('partials/includes.php'); ?>
+	
 </head>
 <body>
 	<div class="wrapper">
@@ -15,9 +16,13 @@
 			<section class="content">
 				<?php 
 					
-					if (isset($_COOKIE["user"])){
-						//echo "Hello " . $_SESSION["username"];
-						echo $_COOKIE["user"];
+					if (isset($_COOKIE["session"])){
+						//setcookie("user", "", time()-3600);
+						session_start();			
+
+						echo "hello " . $_SESSION["username"];
+						echo " <a href='#' onclick='logout()'>Log out</a>";
+
 					}
 					else{
 						require('partials/account/registration.php');
@@ -36,6 +41,10 @@
     $(window).load(function(){      
       $(".my-account").addClass("active");
     });
+    function logout(){
+	  document.cookie = 'session=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	  location.reload();
+	}
   </script>
 </body>
 </html>
