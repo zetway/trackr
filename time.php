@@ -66,22 +66,29 @@
 		</footer>
 	</div>
 	<script type="text/javascript"> 
-	var AppState = {};
+	var AppState = {timers: {}};
 	$(window).load(function(){      
 		$(".time").addClass("active");
 		$(".switch li div").on("click", function(evt)
 		{
-			AppState.ticks = 0;
+			$.post("/trackr/store-data/store-time.php", AppState.timers ).fail(function() {
+			    alert( "error" );
+			  });
+
 			var target = $(evt.target);
-			AppState.currTimer = target.html();
+			var catName = target.html().trim();
+
+			
+			AppState.timers[catName] = AppState.timers[catName] || 0;
+			AppState.currTimer = catName;
 			$(".switch li").removeClass("active");
 			target.parent().addClass("active");
 			var counterEl = $(evt.target).next();
 			(function loopingFunction() {
 			    
-			    if(AppState.currTimer === counterEl.prev().html()) {
+			    if(AppState.currTimer === catName) {
 				    setTimeout(loopingFunction, 1000);
-				    counterEl.html(getTime(AppState.ticks++));
+				    counterEl.html(getTime(AppState.timers[catName]++));
 
 			    }
 			})();
