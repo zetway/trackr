@@ -13,10 +13,11 @@
 		<section class="content">
 			<?php
 				if (isset($_COOKIE["session"])){
+
 					require("partials/time-content.php");
 				}
 				else{
-					require('partials/account/registration.php');
+					require('account/registration.php');
 				}
 			?>
 		</section>
@@ -51,16 +52,16 @@
 
 				var data = {};
 
-				data["Date]"] = getFormattedDate();
+				data["Date"] = getFormattedDate();
 				data["TimeCategory"] = prevTimer;
-				data["Seconds"] = AppState.timers[prevTimer];
+				data["Seconds"] = AppState.timers[prevTimer];				
 
-				var jqxhr = $.post( "store-data/store-time.php", data, function() {
-				  console.log("success");
+				var jqxhr = $.post( "store-data/store-time.php", data, function(resp) {
+				  //console.log(resp);
 				}).fail(function() {
 					console.log( "error" );
 				});
-				
+			
 			}
 			AppState.currTimer = catName;
 

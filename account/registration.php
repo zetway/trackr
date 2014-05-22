@@ -1,4 +1,5 @@
 <?php
+	require_once("account.php");
 	$account = new Account();
 	if (isset($_POST["register"]))
 	{

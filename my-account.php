@@ -1,4 +1,4 @@
-<?php require('logic/account.php') ?>
+<?php require('account/account.php') ?>
 <!DOCTYPE html>
 <html>
 <head>		
@@ -25,7 +25,7 @@
 
 					}
 					else{
-						require('partials/account/registration.php');
+						require('account/registration.php');
 					}
 					 
 

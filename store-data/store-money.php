@@ -8,8 +8,8 @@ else {
 
 $Date = getPostParam("Date");
 $UserId = $userId;
-$TimeCategory = getPostParam("TimeCategory");
-$Seconds = getPostParam("Seconds", true);
+$MoneyCategory = getPostParam("MoneyCategory");
+$Amount = getPostParam("Amount", true);
 
 $storage = new Storage();
-$storage->AddTime($Date, $UserId, $TimeCategory, $Seconds);
+$storage->AddSpendings($Date, $UserId, $MoneyCategory, $Amount);

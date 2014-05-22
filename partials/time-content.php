@@ -6,7 +6,7 @@
 			</div>
 			<ul class="right">
 				<li><a id="edit-cats" href="#">Edit categories</a></li>
-				<li><a href="#">Some setting</a></li>
+				
 			</ul>
 			<div class="clear"></div>
 			<ul class="switch">

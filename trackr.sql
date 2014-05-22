@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 20, 2014 at 09:22 AM
+-- Generation Time: May 22, 2014 at 09:26 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -25,46 +25,52 @@ USE `trackr`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `time-category`
+-- Table structure for table `money_entry`
 --
 
-CREATE TABLE IF NOT EXISTS `time-category` (
-  `TimeCategoryId` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `CategoryName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `UserId` int(11) NOT NULL,
-  PRIMARY KEY (`TimeCategoryId`),
-  KEY `UserId` (`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `time-data`
---
-
-CREATE TABLE IF NOT EXISTS `time-data` (
-  `TimeDataId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `money_entry` (
+  `MoneyEntryId` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `TrackingDate` date NOT NULL,
-  `UserId` int(11) NOT NULL,
-  PRIMARY KEY (`TimeDataId`),
+  `UserId` int(10) unsigned NOT NULL,
+  `MoneyCategory` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Amount` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`MoneyEntryId`),
   KEY `UserId` (`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `money_entry`
+--
+
+INSERT INTO `money_entry` (`MoneyEntryId`, `TrackingDate`, `UserId`, `MoneyCategory`, `Amount`) VALUES
+(1, '2014-05-22', 2, 'Restaurant', 2000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `time-tracking-entry`
+-- Table structure for table `time_entry`
 --
 
-CREATE TABLE IF NOT EXISTS `time-tracking-entry` (
+CREATE TABLE IF NOT EXISTS `time_entry` (
   `TimeEntryId` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `TimeDataId` int(10) unsigned NOT NULL,
-  `TimeCategoryId` int(10) unsigned NOT NULL,
+  `TrackingDate` date NOT NULL,
+  `UserId` int(10) unsigned NOT NULL,
+  `TimeCategory` varchar(50) NOT NULL,
   `Seconds` int(10) unsigned NOT NULL,
-  `Time` time NOT NULL,
   PRIMARY KEY (`TimeEntryId`),
-  KEY `TimeDataId` (`TimeDataId`,`TimeCategoryId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `UserId` (`UserId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `time_entry`
+--
+
+INSERT INTO `time_entry` (`TimeEntryId`, `TrackingDate`, `UserId`, `TimeCategory`, `Seconds`) VALUES
+(1, '2014-05-21', 2, 'coding', 5),
+(2, '2014-05-21', 2, 'serfing', 771),
+(3, '2014-05-21', 2, 'coding', 121),
+(4, '2014-05-21', 2, 'cooking', 19),
+(5, '2014-05-22', 2, 'coding', 4);
 
 -- --------------------------------------------------------
 

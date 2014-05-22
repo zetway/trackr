@@ -12,7 +12,9 @@
 			</header>
 			
 				<section class="content">
-					reports
+					<?php
+						require("store-data/storage.php");
+					?>
 				</section>
 			
 			<footer>
